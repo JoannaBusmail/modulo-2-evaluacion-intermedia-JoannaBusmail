@@ -49,17 +49,16 @@ function balanceUpdate (){
     const balance =document.querySelector ('.js-balance');
     const balanceNum = parseInt (balance.innerHTML);
     
-    console.log (balanceNum);
-  
-    if (selectDiceNum === randomNum){
+ 
+   if (selectDiceNum === randomNum){
         balance.innerHTML = parseInt((userBetMoney*2) + balanceNum);
 
     }else{
         balance.innerHTML = parseInt(userBetMoney- balanceNum);
       
     };
-  
 }
+
 
 //FUNCIÓN HANDLE CLICK
 function handleClick (event){
@@ -71,6 +70,6 @@ event.preventDefault();
 
 
 //CLICK BOTÓN
-buttonPlay.addEventListener ('click' , handleClick)
+buttonPlay.addEventListener ('click' , handleClick);
 
     
