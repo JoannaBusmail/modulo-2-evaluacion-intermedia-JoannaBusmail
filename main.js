@@ -6,7 +6,8 @@ const resultDice = document.querySelector('.js-resultDice');
 const content = document.querySelector ('.js-content');
 const balance =document.querySelector ('.js-balance');
 
-//CONSTANTES DE INPUTS
+
+
 
 
 
@@ -27,6 +28,7 @@ function getRandomNumber (max) {
 // FUNCIÓN APUESTA
 function bet (){
     const randomNum = getRandomNumber(6);
+    //CONSTANTES DE INPUTS
     const selectDiceNum = parseInt(diceNumber.value);
     const userBet =parseInt(userNumber.value);
    
@@ -40,11 +42,30 @@ function bet (){
     };
 }
 
+//FUNCION ACTUALIZACION DE SALDO
+function balanceUpdate (){
+    const userBetMoney = parseInt (userNumber.value);
+    const selectDiceNum = parseInt(diceNumber.value);
+    const balance =document.querySelector ('.js-balance');
+    const balanceNum = parseInt (balance.innerHTML);
+    
+    console.log (balanceNum);
+  
+    if (selectDiceNum === randomNum){
+        balance.innerHTML = parseInt((userBetMoney*2) + balanceNum);
+
+    }else{
+        balance.innerHTML = parseInt(userBetMoney- balanceNum);
+      
+    };
+  
+}
 
 //FUNCIÓN HANDLE CLICK
 function handleClick (event){
 event.preventDefault();
   bet();
+  balanceUpdate ();
 }
 
 
