@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evaluación Intermedia</title>
+  </head>
+  <body>
+    <main>
+      <h1>Dados y Apuestas</h1>
+      <h2>Introduce aquí tu jugada:</h2>
+      <form class="form" action="">
+        <select class="js-diceNum" id="">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+        </select>
+
+        <label for="apuesta"></label>
+        <input
+          class="js-userNum"
+          id="apuesta"
+          name="apuesta"
+          type="number"
+          placeholder="¿Cuánto apuestas?"
+          min="1"
+        />
+
+        <button class="js-buttonPlay">"Jugar"</button>
+      </form>
+      <h3 class="js-content">Vamos a Jugar!</h3>
+      <h4 class="js-balance">Saldo:50</h4>
+    </main>
+    <script type="text/Javascript" src="./main.js"></script>
+  </body>
+</html>
