@@ -43,28 +43,27 @@ function bet (){
 }
 
 //FUNCION ACTUALIZACION DE SALDO
-function balanceUpdate (){
+/*function balanceUpdate (){
     const userBetMoney = parseInt (userNumber.value);
     const selectDiceNum = parseInt(diceNumber.value);
     const balance =document.querySelector ('.js-balance');
     const balanceNum = parseInt (balance.innerHTML);
-    
- 
+
    if (selectDiceNum === randomNum){
         balance.innerHTML = parseInt((userBetMoney*2) + balanceNum);
 
     }else{
-        balance.innerHTML = parseInt(userBetMoney- balanceNum);
+        balance.innerHTML = parseInt(userBetMoney - balanceNum);
       
     };
-}
+}*/
 
 
 //FUNCIÓN HANDLE CLICK
 function handleClick (event){
 event.preventDefault();
   bet();
-  balanceUpdate ();
+ balanceUpdate ();
 }
 
 
