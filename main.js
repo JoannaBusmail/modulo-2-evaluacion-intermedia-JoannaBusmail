@@ -1,3 +1,5 @@
+'use strict';
+
 // CONSTANTES DE ELEMENTOS HTML
 const diceNumber = document.querySelector('.js-diceNum');
 const userNumber = document.querySelector('.js-userNum');
