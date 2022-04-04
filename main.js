@@ -1,79 +1,70 @@
 'use strict';
 
 //FUNCIÓN GET ELEMENTS HTML
-function getHtmlElement (jsClass){
+/*function getHtmlElement (jsClass){
    const nameConst=document.querySelector (jsClass);
    return nameConst;
-}
+}*/
 
-const diceNumber = getHtmlElement('.js-diceNum');
-const userNumber= getHtmlElement('.js-userNum');
-const buttonPlay = getHtmlElement ('.js-buttonPlay');
-const resultDice = getHtmlElement( '.js-resultDice');
-const content = getHtmlElement('.js-content');
-const balance = getHtmlElement('.js-balance');
+const diceNumber = document.querySelector('.js-diceNum');
+const userNumber= document.querySelector('.js-userNum');
+const buttonPlay = document.querySelector('.js-buttonPlay');
+const resultDice = document.querySelector( '.js-resultDice');
+const content = document.querySelector('.js-content');
+const balance = document.querySelector('.js-balance');
 
-
-
-// CONTANTES PARA RESULTADO TEXTO
+// CONTANTES 
 const win = `<h3> Has ganado el doble de lo apostado</h3>`;
 const loose = `<h3> Has perdido lo apostado</h3>`;
 
-
+let initialBalance = 50;
 
 //FUNCIÓN NÚMERO RANDOM DADO ORDENADOR
 function getRandomNumber (max) {
     return Math.ceil(Math.random() *max);
   
-}
-
-//FUNCION INNERHTML
-function printHtml (element , msg) {
-    element.innerHTML = msg;
-}
-
+};
 
 // FUNCIÓN APUESTA
-function bet (){
-    const randomNum = getRandomNumber(6);
+function bet ( selectDiceNum , randomNum){
 
-    //CONSTANTES DE INPUTS
-    const selectDiceNum = parseInt(diceNumber.value);
-    const userBet =parseInt(userNumber.value);
-   
     if (selectDiceNum === randomNum){
-       printHtml(resultDice , `<p>Dado = ${randomNum} </p>`) ;
-       printHtml(content, win);
-       
+      resultDice.innerHTML= `<p>Dado = ${randomNum} </p>`;
+      content.innerHTML = win;
 
     }else{
-        printHtml(resultDice , `<p>Dado = ${randomNum} </p>`) ;
-       printHtml(content , loose)
+       resultDice.innerHTML=`<p>Dado = ${randomNum} </p>`;
+       content.innerHTML= loose;
     };
 };
 
 //FUNCION ACTUALIZACION DE SALDO
-/*function balanceUpdate (){
-    const userBetMoney = parseInt (userNumber.value);
-    const selectDiceNum = parseInt(diceNumber.value);
-    const balance =document.querySelector ('.js-balance');
-    const balanceNum = parseInt (balance.innerHTML);
+function balanceUpdate (selectDiceNum  , randomNum){
+
+   const userBetMoney = parseInt(userNumber.value);
+    console.log(userBetMoney);
+   
 
    if (selectDiceNum === randomNum){
-        balance.innerHTML = parseInt((userBetMoney*2) + balanceNum);
+        initialBalance = userBetMoney * 2 + initialBalance;
 
     }else{
-        balance.innerHTML = parseInt(userBetMoney - balanceNum);
+      initialBalance = initialBalance - userBetMoney;
       
     };
-}*/
+
+ balance.innerHTML = `${initialBalance}`;
+}
 
 
 //FUNCIÓN HANDLE CLICK
 function handleClick (event){
-event.preventDefault();
-  bet();
- //balanceUpdate ();
+    event.preventDefault();
+    const randomNum = getRandomNumber(6);
+    const selectDiceNum = parseInt (diceNumber.value); 
+  bet(selectDiceNum , randomNum);
+  balanceUpdate (selectDiceNum , randomNum)
+
 }
 
 
