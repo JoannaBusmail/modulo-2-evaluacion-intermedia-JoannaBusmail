@@ -12,7 +12,7 @@ const buttonPlay = document.querySelector('.js-buttonPlay');
 const resultDice = document.querySelector( '.js-resultDice');
 const content = document.querySelector('.js-content');
 const balance = document.querySelector('.js-balance');
-
+const resetButton =document.querySelector ('.js_resetButton');
 // CONTANTES 
 const win = `<h3> Has ganado el doble de lo apostado</h3>`;
 const loose = `<h3> Has perdido lo apostado</h3>`;
@@ -25,6 +25,12 @@ function getRandomNumber (max) {
   
 };
 //FUNCION FIN DE JUEGO
+function endGame (){
+    if (initialBalance === 0 || initialBalance >= 200){
+        resetButton.classList.remove('hidden');
+        buttonPlay.classList.add('hidden');
+    };
+};
 
 // FUNCIÓN APUESTA
 function bet ( selectDiceNum , randomNum){
@@ -36,7 +42,10 @@ function bet ( selectDiceNum , randomNum){
     }else{
        resultDice.innerHTML=`<p>Dado = ${randomNum} </p>`;
        content.innerHTML= loose;
+
+       endGame();
     };
+ 
 };
 
 //FUNCION ACTUALIZACION DE SALDO
