@@ -24,6 +24,7 @@ function getRandomNumber (max) {
     return Math.ceil(Math.random() *max);
   
 };
+//FUNCION FIN DE JUEGO
 
 // FUNCIÓN APUESTA
 function bet ( selectDiceNum , randomNum){
